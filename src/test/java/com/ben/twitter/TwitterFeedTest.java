@@ -53,11 +53,78 @@ public class TwitterFeedTest {
 
     @Test
     public void testOutput_2() {
+
+        new MockUp<TwitterFeed>() {
+
+            @Mock
+            private void printOutput(Map<String, List<String>> tweetsForEachUser, List<String> orderedNames) {
+
+                assertNotNull(tweetsForEachUser);
+                assertNotNull(orderedNames);
+
+                assertEquals(2, tweetsForEachUser.size());
+                assertEquals(3, orderedNames.size());
+
+                List<String> martin = tweetsForEachUser.get("Martin");
+                assertEquals(1, martin.size());
+
+                assertEquals("@Martin: If you have a procedure with 10 parameters, you probably missed some.", martin.get(0));
+
+                List<String> ward = tweetsForEachUser.get("Ward");
+                assertEquals(1, ward.size());
+
+                assertEquals("@Martin: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
+            }
+        };
+
         TwitterFeed.main(new String[]{"src/test/resources/users_2.txt", "src/test/resources/tweets_2.txt"});
     }
 
     @Test
     public void testOutput_3() {
+
+        new MockUp<TwitterFeed>() {
+
+            @Mock
+            private void printOutput(Map<String, List<String>> tweetsForEachUser, List<String> orderedNames) {
+
+                assertNotNull(tweetsForEachUser);
+                assertNotNull(orderedNames);
+
+                assertEquals(4, tweetsForEachUser.size());
+                assertEquals(5, orderedNames.size());
+
+                List<String> martin = tweetsForEachUser.get("Martin");
+                assertEquals(3, martin.size());
+
+                assertEquals("@Ben: tweet1", martin.get(0));
+                assertEquals("@Ben: tweet2", martin.get(1));
+                assertEquals("@Martin: tweet1", martin.get(2));
+
+                List<String> ward = tweetsForEachUser.get("Ward");
+                assertEquals(4, ward.size());
+
+                assertEquals("@Ben: tweet1", ward.get(0));
+                assertEquals("@Ben: tweet2", ward.get(1));
+                assertEquals("@Martin: tweet1", ward.get(2));
+                assertEquals("@Alan: tweet1", ward.get(3));
+
+                List<String> ben = tweetsForEachUser.get("Ben");
+                assertEquals(4, ward.size());
+
+                assertEquals("@Ben: tweet1", ben.get(0));
+                assertEquals("@Ben: tweet2", ben.get(1));
+                assertEquals("@Martin: tweet1", ben.get(2));
+                assertEquals("@Alan: tweet1", ben.get(3));
+
+                List<String> alan = tweetsForEachUser.get("Alan");
+                assertEquals(2, alan.size());
+
+                assertEquals("@Martin: tweet1", alan.get(0));
+                assertEquals("@Alan: tweet1", alan.get(1));
+            }
+        };
+
         TwitterFeed.main(new String[]{"src/test/resources/users_3.txt", "src/test/resources/tweets_3.txt"});
     }
 
