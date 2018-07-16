@@ -1,5 +1,7 @@
 package com.ben.twitter;
 
+import mockit.Mock;
+import mockit.MockUp;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.test.util.ReflectionTestUtils;
@@ -19,6 +21,33 @@ public class TwitterFeedTest {
 
     @Test
     public void testOutput_1() {
+
+        new MockUp<TwitterFeed>() {
+
+            @Mock
+            private void printOutput(Map<String, List<String>> tweetsForEachUser, List<String> orderedNames) {
+
+                assertNotNull(tweetsForEachUser);
+                assertNotNull(orderedNames);
+
+                assertEquals(2, tweetsForEachUser.size());
+                assertEquals(3, orderedNames.size());
+
+                List<String> alan = tweetsForEachUser.get("Alan");
+                assertEquals(2, alan.size());
+
+                assertEquals("@Alan: If you have a procedure with 10 parameters, you probably missed some.", alan.get(0));
+                assertEquals("@Alan: Random numbers should not be generated with a method chosen at random.", alan.get(1));
+
+                List<String> ward = tweetsForEachUser.get("Ward");
+                assertEquals(3, ward.size());
+
+                assertEquals("@Alan: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
+                assertEquals("@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.", ward.get(1));
+                assertEquals("@Alan: Random numbers should not be generated with a method chosen at random.", ward.get(2));
+            }
+        };
+
         TwitterFeed.main(new String[]{"src/test/resources/users_1.txt", "src/test/resources/tweets_1.txt"});
     }
 
