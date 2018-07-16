@@ -69,7 +69,7 @@ public class TwitterFeed {
                 throw new IllegalArgumentException("Tweet exceeds 140 character limit: " + tweet);
             }
 
-            String tweetMessage = "@" + name + ": " + split[1];
+            String tweetMessage = "\t@" + name + ": " + split[1];
 
             // list of tweets for each user
             addToUsersTimeLine(userTweetsMap, name, tweetMessage);

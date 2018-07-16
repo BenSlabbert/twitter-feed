@@ -36,15 +36,15 @@ public class TwitterFeedTest {
                 List<String> alan = tweetsForEachUser.get("Alan");
                 assertEquals(2, alan.size());
 
-                assertEquals("@Alan: If you have a procedure with 10 parameters, you probably missed some.", alan.get(0));
-                assertEquals("@Alan: Random numbers should not be generated with a method chosen at random.", alan.get(1));
+                assertEquals("\t@Alan: If you have a procedure with 10 parameters, you probably missed some.", alan.get(0));
+                assertEquals("\t@Alan: Random numbers should not be generated with a method chosen at random.", alan.get(1));
 
                 List<String> ward = tweetsForEachUser.get("Ward");
                 assertEquals(3, ward.size());
 
-                assertEquals("@Alan: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
-                assertEquals("@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.", ward.get(1));
-                assertEquals("@Alan: Random numbers should not be generated with a method chosen at random.", ward.get(2));
+                assertEquals("\t@Alan: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
+                assertEquals("\t@Ward: There are only two hard things in Computer Science: cache invalidation, naming things and off-by-1 errors.", ward.get(1));
+                assertEquals("\t@Alan: Random numbers should not be generated with a method chosen at random.", ward.get(2));
             }
         };
 
@@ -68,12 +68,12 @@ public class TwitterFeedTest {
                 List<String> martin = tweetsForEachUser.get("Martin");
                 assertEquals(1, martin.size());
 
-                assertEquals("@Martin: If you have a procedure with 10 parameters, you probably missed some.", martin.get(0));
+                assertEquals("\t@Martin: If you have a procedure with 10 parameters, you probably missed some.", martin.get(0));
 
                 List<String> ward = tweetsForEachUser.get("Ward");
                 assertEquals(1, ward.size());
 
-                assertEquals("@Martin: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
+                assertEquals("\t@Martin: If you have a procedure with 10 parameters, you probably missed some.", ward.get(0));
             }
         };
 
@@ -97,31 +97,31 @@ public class TwitterFeedTest {
                 List<String> martin = tweetsForEachUser.get("Martin");
                 assertEquals(3, martin.size());
 
-                assertEquals("@Ben: tweet1", martin.get(0));
-                assertEquals("@Ben: tweet2", martin.get(1));
-                assertEquals("@Martin: tweet1", martin.get(2));
+                assertEquals("\t@Ben: tweet1", martin.get(0));
+                assertEquals("\t@Ben: tweet2", martin.get(1));
+                assertEquals("\t@Martin: tweet1", martin.get(2));
 
                 List<String> ward = tweetsForEachUser.get("Ward");
                 assertEquals(4, ward.size());
 
-                assertEquals("@Ben: tweet1", ward.get(0));
-                assertEquals("@Ben: tweet2", ward.get(1));
-                assertEquals("@Martin: tweet1", ward.get(2));
-                assertEquals("@Alan: tweet1", ward.get(3));
+                assertEquals("\t@Ben: tweet1", ward.get(0));
+                assertEquals("\t@Ben: tweet2", ward.get(1));
+                assertEquals("\t@Martin: tweet1", ward.get(2));
+                assertEquals("\t@Alan: tweet1", ward.get(3));
 
                 List<String> ben = tweetsForEachUser.get("Ben");
                 assertEquals(4, ward.size());
 
-                assertEquals("@Ben: tweet1", ben.get(0));
-                assertEquals("@Ben: tweet2", ben.get(1));
-                assertEquals("@Martin: tweet1", ben.get(2));
-                assertEquals("@Alan: tweet1", ben.get(3));
+                assertEquals("\t@Ben: tweet1", ben.get(0));
+                assertEquals("\t@Ben: tweet2", ben.get(1));
+                assertEquals("\t@Martin: tweet1", ben.get(2));
+                assertEquals("\t@Alan: tweet1", ben.get(3));
 
                 List<String> alan = tweetsForEachUser.get("Alan");
                 assertEquals(2, alan.size());
 
-                assertEquals("@Martin: tweet1", alan.get(0));
-                assertEquals("@Alan: tweet1", alan.get(1));
+                assertEquals("\t@Martin: tweet1", alan.get(0));
+                assertEquals("\t@Alan: tweet1", alan.get(1));
             }
         };
 
@@ -236,11 +236,11 @@ public class TwitterFeedTest {
         assertNotNull(userTweetsMap);
         assertEquals(2, userTweetsMap.size());
 
-        assertEquals("@Ward: tweet 1", userTweetsMap.get("Ward").get(0));
-        assertEquals("@Ward: tweet 2", userTweetsMap.get("Ward").get(1));
+        assertEquals("\t@Ward: tweet 1", userTweetsMap.get("Ward").get(0));
+        assertEquals("\t@Ward: tweet 2", userTweetsMap.get("Ward").get(1));
 
-        assertEquals("@Ward: tweet 1", userTweetsMap.get("Alan").get(0));
-        assertEquals("@Ward: tweet 2", userTweetsMap.get("Alan").get(1));
+        assertEquals("\t@Ward: tweet 1", userTweetsMap.get("Alan").get(0));
+        assertEquals("\t@Ward: tweet 2", userTweetsMap.get("Alan").get(1));
     }
 
     @Test
@@ -264,8 +264,8 @@ public class TwitterFeedTest {
         assertNotNull(userTweetsMap);
         assertEquals(1, userTweetsMap.size());
 
-        assertEquals("@Alan: tweet 1", userTweetsMap.get("Alan").get(0));
-        assertEquals("@Alan: tweet 2", userTweetsMap.get("Alan").get(1));
+        assertEquals("\t@Alan: tweet 1", userTweetsMap.get("Alan").get(0));
+        assertEquals("\t@Alan: tweet 2", userTweetsMap.get("Alan").get(1));
     }
 
     @Test(expected = IllegalArgumentException.class)
