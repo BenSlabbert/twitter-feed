@@ -1,5 +1,9 @@
 # Twitter Feed
 
+## Requirements
+
+* Java 1.8 JDK
+
 ## Build
 
 The project includes the Maven Wrapper JAR, to build:
@@ -16,9 +20,13 @@ This project packages into a single JAR file:
 
 `./mvnw clean package`
 
-## Testing
+## Example Demo
 
-`./mvnw clean test`
+`java -jar target/twitter-feed.jar ./src/test/resources/users_1.txt ./src/test/resources/tweets_1.txt`
+
+`java -jar target/twitter-feed.jar ./src/test/resources/users_2.txt ./src/test/resources/tweets_2.txt`
+
+`java -jar target/twitter-feed.jar ./src/test/resources/users_3.txt ./src/test/resources/tweets_3.txt`
 
 ## Assumptions
 
