@@ -64,4 +64,4 @@ the tweeter and the tweet message must be split by 2 characters:
 
 `> `
 
-A `>` and a ` ` must be present.
+A `>` and a ` ` (space)  must be present.
