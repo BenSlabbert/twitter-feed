@@ -1,0 +1,4 @@
+Ward follows Alan, Ben, Martin, Example
+Alan follows Martin
+Ben follows Martin, Alan
+Martin follows Ben
