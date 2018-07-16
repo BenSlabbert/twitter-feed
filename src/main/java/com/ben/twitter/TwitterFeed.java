@@ -64,6 +64,11 @@ public class TwitterFeed {
 
             String[] split = tweet.split("> ");
             String name = split[0];
+
+            if (split[1].length() > 140) {
+                throw new IllegalArgumentException("Tweet exceeds 140 character limit: " + tweet);
+            }
+
             String tweetMessage = "@" + name + ": " + split[1];
 
             // list of tweets for each user

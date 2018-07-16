@@ -171,4 +171,28 @@ public class TwitterFeedTest {
         assertEquals("@Alan: tweet 1", userTweetsMap.get("Alan").get(0));
         assertEquals("@Alan: tweet 2", userTweetsMap.get("Alan").get(1));
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void getTweetsForUserTest_3_tweetTooLong() {
+
+        Map<String, List<String>> users = new HashMap<>();
+
+        ArrayList<String> follows = new ArrayList<>();
+        follows.add("Ward");
+        users.put("Alan", follows);
+
+        // create too long tweet
+        char[] chars = new char[141];
+
+        for (int i = 0; i < chars.length; i++) {
+            chars[i] = 'a';
+        }
+
+        String tooLong = new String(chars);
+
+        List<String> tweets = new ArrayList<>();
+        tweets.add("Alan> " + tooLong);
+
+        ReflectionTestUtils.invokeMethod(twitterFeed, "getTweetsForUser", users, tweets);
+    }
 }
