@@ -84,7 +84,6 @@ public class TwitterFeed {
     private static void updateFollowersTimeLine(Map<String, List<String>> users,
                                                 Map<String, List<String>> userTweetsMap,
                                                 String name,
-
                                                 String tweetMessage) {
 
         for (Map.Entry<String, List<String>> entry : users.entrySet()) {
@@ -137,7 +136,6 @@ public class TwitterFeed {
     private static Map<String, List<String>> getUsersFromFile(String path) throws IOException {
 
         Map<String, List<String>> userMap = new HashMap<>();
-
         Path p = Paths.get(path);
         List<String> lines = Files.readAllLines(p);
 
