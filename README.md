@@ -60,7 +60,7 @@ and the program will stop executing.
 
 4.) `tweets.txt`
 
-the tweeter and the tweet message must be split by 2 charaters:
+the tweeter and the tweet message must be split by 2 characters:
 
 `> `
 
